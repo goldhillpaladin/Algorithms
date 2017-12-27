@@ -1,29 +1,29 @@
 /*
-    ÒÑÖª¶þ²æÊ÷µÄÏÈÐòºÍÖÐÐò±éÀúÐòÁÐ£¬Çó³ö¶þ²æÊ÷¡£
+    å·²çŸ¥äºŒå‰æ ‘çš„å…ˆåºå’Œä¸­åºéåŽ†åºåˆ—ï¼Œæ±‚å‡ºäºŒå‰æ ‘ã€‚
 */
 
 /*
-    ½â·¨£º
-    ¼ÙÉèÓÐÒ»¸öÈçÏÂËùÊ¾µÄ¶þ²æÊ÷
+    è§£æ³•ï¼š
+    å‡è®¾æœ‰ä¸€ä¸ªå¦‚ä¸‹æ‰€ç¤ºçš„äºŒå‰æ ‘
         A
        /  \
       B    C
      / \  / \
     D  E  F  G
-    ÏÈÐò±éÀú pre_order Îª ABDECFG
-    ÖÐÐò±éÀú in_order Îª DBEAFCG
-    ÏÔÈ»¿É¼û£¬¸ù½ÚµãÎª A£¬Ò²¼´ pre_order µÄµÚÒ»¸öÔªËØ¡£
-    pre_order ÖÐµÄÊ£ÓàÔªËØ¶¼ÊÇ A µÄºó´ú½Úµã¡£
-    ÏÔÈ»¿É¼û£¬ÔÚ in_order ÖÐ£¬Î»ÓÚ A Ö®Ç°µÄÊÇ¸ù½ÚµãµÄ×ó×ÓÊ÷½Úµã£¬²¢ÇÒÕâÒ»Á¬ÐøÐòÁÐÊÇ×ó×ÓÊ÷µÄÖÐÐò±éÀú£»Î»ÓÚ A Ö®ºóµÄÊÇ¸ù½ÚµãµÄÓÒ×ÓÊ÷½Úµã£¬²¢ÇÒÕâÒ»Á¬ÐøÐòÁÐÊÇÓÒ×ÓÊ÷µÄÖÐÐò±éÀú¡£
-    ¼ÙÉè×ó×ÓÊ÷ÖÐÐò±éÀúµÄÔªËØ¸öÊýÊÇ l_num£¬ÓÒ×ÓÊ÷ÖÐÐò±éÀúµÄÔªËØ¸öÊýÊÇ r_num£¬
-    ÓÖ¿É¼û£¬ÔÚ pre_order ÖÐ£¬´Ó A ÍùºóµÄ l_num ¸öÁ¬ÐøÐòÁÐÊÇ×ó×ÓÊ÷µÄÏÈÐò±éÀú£¬ÔÙÖ®ºóµÄ r_num ¸öÁ¬ÐøÐòÁÐÊÇÓÒ×ÓÊ÷µÄÏÈÐò±éÀú¡£
-    ÓÚÊÇ¿ÉÒÔ»ñµÃ×ó/ÓÒ×ÓÊ÷µÄÏÈÐòºÍÖÐÐòÐòÁÐ¡£±ã¿ÉÒÔ·Ö±ð»ñµÃ×ó×ÓÊ÷ºÍÓÒ×ÓÊ÷µÄ¸ù½Úµã¡£
-    ÓÉ´ËµÝ¹é£¬±ã¿É»ñµÃ¶þ²æÊ÷µÄËùÓÐ½Úµã¡£
+    å…ˆåºéåŽ† pre_order ä¸º ABDECFG
+    ä¸­åºéåŽ† in_order ä¸º DBEAFCG
+    æ˜¾ç„¶å¯è§ï¼Œæ ¹èŠ‚ç‚¹ä¸º Aï¼Œä¹Ÿå³ pre_order çš„ç¬¬ä¸€ä¸ªå…ƒç´ ã€‚
+    pre_order ä¸­çš„å‰©ä½™å…ƒç´ éƒ½æ˜¯ A çš„åŽä»£èŠ‚ç‚¹ã€‚
+    æ˜¾ç„¶å¯è§ï¼Œåœ¨ in_order ä¸­ï¼Œä½äºŽ A ä¹‹å‰çš„æ˜¯æ ¹èŠ‚ç‚¹çš„å·¦å­æ ‘èŠ‚ç‚¹ï¼Œå¹¶ä¸”è¿™ä¸€è¿žç»­åºåˆ—æ˜¯å·¦å­æ ‘çš„ä¸­åºéåŽ†ï¼›ä½äºŽ A ä¹‹åŽçš„æ˜¯æ ¹èŠ‚ç‚¹çš„å³å­æ ‘èŠ‚ç‚¹ï¼Œå¹¶ä¸”è¿™ä¸€è¿žç»­åºåˆ—æ˜¯å³å­æ ‘çš„ä¸­åºéåŽ†ã€‚
+    å‡è®¾å·¦å­æ ‘ä¸­åºéåŽ†çš„å…ƒç´ ä¸ªæ•°æ˜¯ l_numï¼Œå³å­æ ‘ä¸­åºéåŽ†çš„å…ƒç´ ä¸ªæ•°æ˜¯ r_numï¼Œ
+    åˆå¯è§ï¼Œåœ¨ pre_order ä¸­ï¼Œä»Ž A å¾€åŽçš„ l_num ä¸ªè¿žç»­åºåˆ—æ˜¯å·¦å­æ ‘çš„å…ˆåºéåŽ†ï¼Œå†ä¹‹åŽçš„ r_num ä¸ªè¿žç»­åºåˆ—æ˜¯å³å­æ ‘çš„å…ˆåºéåŽ†ã€‚
+    äºŽæ˜¯å¯ä»¥èŽ·å¾—å·¦/å³å­æ ‘çš„å…ˆåºå’Œä¸­åºåºåˆ—ã€‚ä¾¿å¯ä»¥åˆ†åˆ«èŽ·å¾—å·¦å­æ ‘å’Œå³å­æ ‘çš„æ ¹èŠ‚ç‚¹ã€‚
+    ç”±æ­¤é€’å½’ï¼Œä¾¿å¯èŽ·å¾—äºŒå‰æ ‘çš„æ‰€æœ‰èŠ‚ç‚¹ã€‚
 */
 
 #include <vector>
 
-// ¶þ²æÊ÷½ÚµãµÄÊý¾Ý½á¹¹
+// äºŒå‰æ ‘èŠ‚ç‚¹çš„æ•°æ®ç»“æž„
 struct Node {
     Node() : ch(0), left_child(nullptr), right_child(nullptr) {}
     Node(char val) : ch(val), left_child(nullptr), right_child(nullptr) {}
@@ -45,16 +45,16 @@ Node::~Node() {
 }
 
 Node* GetTree(const std::vector<char>& pre_order, const std::vector<char>& in_order) {
-    if (pre_order.empty()) // Èç¹û±éÀúÐòÁÐÎª¿Õ£¬Ôò·µ»Ø¿Õ½Úµã
+    if (pre_order.empty()) // å¦‚æžœéåŽ†åºåˆ—ä¸ºç©ºï¼Œåˆ™è¿”å›žç©ºèŠ‚ç‚¹
         return nullptr;
-    Node* node = new Node(pre_order.front()); // »ñÈ¡¸ù½Úµã
+    Node* node = new Node(pre_order.front()); // èŽ·å–æ ¹èŠ‚ç‚¹
     size_t i = 0;
-    for (; i < in_order.size(); ++i) { // ÔÚ in_order ÖÐÕÒµ½¸ù½ÚµãµÄÏÂ±ê
+    for (; i < in_order.size(); ++i) { // åœ¨ in_order ä¸­æ‰¾åˆ°æ ¹èŠ‚ç‚¹çš„ä¸‹æ ‡
         if (in_order[i] == pre_order.front())
             break;
     }
 
-    // µÝ¹é£¬»ñÈ¡×ÓÊ÷µÄ¸ù½Úµã£¬ÒÔ¼°×ÓÊ÷µÄ×ÓÊ÷µÄ¸ù½Úµã£¬ÒÔ´ËÍùÏÂ£¬Ö±µ½ÐòÁÐÎª¿ÕÎªÖ¹
+    // é€’å½’ï¼ŒèŽ·å–å­æ ‘çš„æ ¹èŠ‚ç‚¹ï¼Œä»¥åŠå­æ ‘çš„å­æ ‘çš„æ ¹èŠ‚ç‚¹ï¼Œä»¥æ­¤å¾€ä¸‹ï¼Œç›´åˆ°åºåˆ—ä¸ºç©ºä¸ºæ­¢
     node->left_child = GetTree(std::vector<char>(pre_order.begin() + 1, pre_order.begin() + 1 + i),
                                std::vector<char>(in_order.begin(), in_order.begin() + i));
     node->right_child = GetTree(std::vector<char>(pre_order.begin() + 1 + i, pre_order.end()),
