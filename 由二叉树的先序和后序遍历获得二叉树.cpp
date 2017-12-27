@@ -65,10 +65,10 @@ Node* GetTree(const std::vector<char>& pre_order, const std::vector<char>& in_or
 int test() {
     std::vector<char> pre_order = { 'A', 'B', 'D', 'E', 'C', 'F', 'G' };
     std::vector<char> in_order = { 'D', 'B', 'E', 'A', 'F', 'C', 'G' };
-    Node* tree = GetTree(pre_order, in_order);
+    Node* tree1 = GetTree(pre_order, in_order);
     Node* tree2 = GetTree({ 'A', 'B', 'C', 'D', 'E', 'G', 'F' },
                           { 'C', 'B', 'E', 'G', 'D', 'F', 'A' });
-    delete tree;
+    delete tree1;
     delete tree2;
     return 0;
 }
